@@ -53,7 +53,7 @@ public class IshirBlog {
                 if (file.isDirectory()) {
                     getFiles(file.getAbsolutePath());
                 } else {
-                    //获取文件的属性
+                    //获取文件的属性，添加最后修改时间在范围内的文件
                     Path path = Paths.get(file.getAbsolutePath());
                     BasicFileAttributes basicFileAttributes = Files.readAttributes(path, BasicFileAttributes.class);
                     Date date = new Date(basicFileAttributes.lastModifiedTime().toMillis());
